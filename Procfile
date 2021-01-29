@@ -1,1 +1,1 @@
-web: gunicorn CLM.wsgi --log-file -
+web: gunicorn MRR.wsgi --log-file -

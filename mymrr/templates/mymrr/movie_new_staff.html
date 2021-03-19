@@ -1,0 +1,9 @@
+{% extends 'mymrr/base_staff.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h1>Add movie</h1>
+    <form method="POST" class="movie-form">{% csrf_token %}
+          {{ form|crispy }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}

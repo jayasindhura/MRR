@@ -1,0 +1,84 @@
+{% extends 'mymrr/base_reviewer.html' %}
+ {% block content %}
+
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Movie Ratings and Reviews</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    </head>
+    <body>
+    <style>
+        body {
+            background-color: beige;
+        }
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Welcome!</div>
+                    <div class="panel-body">
+                        Movie Ratings and Reviews
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h2 style="padding-left: 15Px">Reviewer Information</h2>
+    </div>
+    <div>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+            <tr class="bg-info">
+                <th>reviewer ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+				<th>Age Range</th>
+				<th>Ocuupation</th>
+                <th>Email</th>
+				<th>Phone</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zip Code</th>
+
+                <th colspan="3">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for reviewer in reviewers %}
+                <tr>
+                    <td>{{ reviewer.Reviewer_ID }}</td>
+                    <td>{{ reviewer.Reviewer_First_Name }}</td>
+                    <td>{{ reviewer.Reviewer_Last_Name }}</td>
+                    <td>{{ reviewer.Reviewer_Gender }}</td>
+                    <td>{{ reviewer.Reviewer_Age_Range }}</td>
+                    <td>{{ reviewer.Reviewer_Occupation }}</td>
+                    <td>{{ reviewer.Reviewer_Email }}</td>
+					<td>{{ reviewer.Reviewer_Phone }}</td>
+                    <td>{{ reviewer.Reviewer_City }}</td>
+                    <td>{{ reviewer.Reviewer_State }}</td>
+                    <td>{{ reviewer.Reviewer_Zipcode }}</td>
+                    <td><a href="{% url 'mymrr:reviewer_edit' pk=reviewer.pk %}" class="btn btn-warning">Edit</a>
+
+
+                    <td><a href="{% url 'mymrr:reviewer_delete' pk=reviewer.pk %}"
+                           onclick="return confirm('Are you sure you want to delete?')"
+                           class="btn btn-danger">Delete</a>
+                    </td>
+
+                    </td>
+                    <!-- <td><a href="" class="btn btn-primary">Summary</a> -->
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    </body>
+    </html>
+{% endblock %}

@@ -1,0 +1,75 @@
+h1 {
+    color: #ffffff !important;
+    font-weight: bolder;
+    font-weight: 900;
+
+}
+h2 {
+    color: #151a80 !important;
+    font-weight: bolder;
+    font-weight: 900;
+
+}
+.navbar {
+            background-color: #151a80 !important;
+        }
+
+.navbar .navbar-brand {
+           color: #ffffff !important;
+        }
+.navbar .navbar-nav > li > a
+        {
+           color: #ffffff !important;
+        }
+.navbar .navbar-nav >  li > a >.dropdown-menu
+  {
+           color: #ffa500 !important;
+        }
+.navbar .navbar-nav .dropdown > li > a
+  {
+           color: #ffa500 !important;
+        }
+body {
+    background: #ffa500 url("images/movie_reviews1.jpg") no-repeat;
+    background-size: 2500px
+}
+
+ /* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 50px) {
+    h1 {
+        color: #ffffff !important;
+        width:100%;
+
+    }
+    h2 {
+        color: #151a80 !important;
+        width:100%;
+
+    }
+    .navbar {
+                background-color: #151a80 !important;
+            }
+
+    .navbar .navbar-brand {
+               color: #ffffff !important;
+            }
+    .navbar .navbar-nav > li > a
+            {
+               color: #ffffff !important;
+            }
+    .navbar .navbar-nav >  li > a >.dropdown-menu
+      {
+               color: #ffa500 !important;
+            }
+    .navbar .navbar-nav .dropdown > li > a
+      {
+               color: #ffa500 !important;
+            }
+    body {
+        background: #ffa500 url("images/library.png") no-repeat;
+        width:100%;
+    }
+    .row {
+        width:100%;
+    }
+}

@@ -1,0 +1,12 @@
+{% extends 'mymrr/base_staff.html' %}
+{% block body_block %}
+    <h1>Delete {{ movie.name }}?</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-danger" value="Delete">
+        <a href="{% url 'mymrr:home' pk=movie.movie_name %} ">Cancel</a>
+
+    </form>
+
+{% endblock %}

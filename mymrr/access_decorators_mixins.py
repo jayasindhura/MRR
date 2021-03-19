@@ -5,8 +5,8 @@ from django.core.exceptions import PermissionDenied
 from django.shortcuts import redirect
 
 
-def member_access_required(function):
-    """ this function is a decorator used to authorize if a user is member """
+def reviewer_access_required(function):
+    """ this function is a decorator used to authorize if a user is reviewer """
 
     def wrap(request, *args, **kwargs):
         if (

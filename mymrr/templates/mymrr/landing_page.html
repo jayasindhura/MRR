@@ -1,0 +1,17 @@
+{% extends 'mymrr/base.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+{%block body_content%}
+<div class="text-center">
+    <h1>Welcome to Movie Ratings and Reviews</h1>
+<div>
+    {% if request.user.role == "staff" %}
+    <h2>Welcome Staff</h2>
+    {% endif %}
+
+    {% if request.user.role == "reviewer" %}
+    <h2>Welcome reviewer</h2>
+    {% endif %}
+</div>
+{% endblock body_content%}

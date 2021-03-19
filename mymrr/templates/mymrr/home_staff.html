@@ -1,0 +1,78 @@
+{% extends 'mymrr/base_staff.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+{%block body_content%}
+<div class="text-center">
+    <h1>Welcome to Movie Ratings and Reviews</h1>
+<div>
+
+    {% if request.user.role == "reviewer" %}
+     <div class="page-container">
+         <h2 class="top-menu">Hello {{ user.username }},</h2>
+         <p>Please choose from below options.</p>
+     </div>
+    {% endif %}
+   <body>
+    <html>
+
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="links">
+                            <!-- Example row of columns -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <div class="thumbnail">
+                                            <img src="{% static "images/movies.jpg" %}" alt="movies"/>
+                                            <div class="caption">
+                                                <h2>movies</h2>
+                                               <!-- <p>Great Products.</p> > -->
+                                                <p><a class="btn btn-primary" href="{% url 'mymrr:movie_list_staff' %}"
+                                                      role="button">View movies</a></p>
+                                            </div>
+                                        </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <div class="thumbnail">
+                                            <img src="{% static "images/reviewer.jpg" %}" alt="customer"/>
+                                            <div class="caption">
+                                                <h2>reviewers</h2>
+                                                <!--<p>We see our success in our customers success </p> -->
+                                                <p><a class="btn btn-primary" href="{% url 'mymrr:reviewer_list_staff' %}"
+                                                      role="button">View
+                                                    details &raquo;</a></p>
+                                            </div>
+                                     </div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-3">
+                                        <div class="thumbnail">
+                                            <img src="{% static "images/movie_ratings.jpg" %}" alt="movie_ratings"/>
+                                            <div class="caption">
+                                                <h2>reviews</h2>
+                                               <!-- <p>Great Services</p> -->
+                                                <p><a class="btn btn-primary" href="{% url 'mymrr:movie_ratings_list_staff' %}"
+                                                      role="button">View
+                                                    details &raquo;</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+    </html>
+{% endblock %}

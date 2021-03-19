@@ -1,0 +1,9 @@
+{% extends 'mymrr/base_reviewer.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <h1>Edit movie</h1>
+    <form method="POST" class="movie_ratings-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Update</button>
+    </form>
+{% endblock %}

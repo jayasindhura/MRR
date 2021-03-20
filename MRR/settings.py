@@ -56,6 +56,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'MRR.urls'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'b6464d3d90aeff'
+EMAIL_HOST_PASSWORD = 'de5aa58ea4aea6'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

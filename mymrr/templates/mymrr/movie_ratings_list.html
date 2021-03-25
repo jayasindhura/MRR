@@ -37,6 +37,7 @@
                 <th>Reviewer Age Range</th>
                 <th>Reviewer Occupation</th>
                 <th>Rating</th>
+                <th>Reviewed Date</th>
                 <th>Review</th>
                 <th colspan="3">Actions</th>
             </tr>
@@ -49,7 +50,10 @@
                      <td>{{ review.Reviewer_Age_Range }}</td>
                     <td>{{ review.Reviewer_Occupation }}</td>
                     <td>{{ review.Rating }}</td>
+                     <td>{{ review.created_date }}</td>
                     <td>{{ review.Review }}</td>
+
+
                     <td><a href="{% url 'mymrr:movie_ratings_edit' pk=review.pk %}"
                            class="btn btn-warning">Edit</a></td>
                     <td><a href="{% url 'mymrr:movie_ratings_delete' pk=review.pk %}"

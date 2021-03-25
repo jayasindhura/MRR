@@ -1,6 +1,7 @@
 from django import forms
 from .models import Reviewers,Movie_Ratings,Movie
 from .models import User
+from django.forms.widgets import DateInput,DateTimeInput
 
 class LoginForm(forms.Form):
     email = forms.EmailField(required=True)
@@ -44,7 +45,10 @@ class ReviewersForm(forms.ModelForm):
 class Movie_RatingsForm(forms.ModelForm):
    class Meta:
        model = Movie_Ratings
-       fields = ('Movie_Title', 'Reviewer_ID', 'Reviewer_Age_Range', 'Reviewer_Occupation', 'Rating', 'Review' )
+       fields = ('Movie_Title', 'Reviewer_ID', 'Reviewer_Age_Range', 'Reviewer_Occupation', 'Rating','created_date','Review', )
+       widgets = {
+           'created_date': DateInput(attrs={'type': 'date'}),
+       }
 
 class MovieForm(forms.ModelForm):
    class Meta:

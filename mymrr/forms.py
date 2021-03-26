@@ -42,12 +42,19 @@ class ReviewersForm(forms.ModelForm):
         model = Reviewers
         fields = ('Reviewer_ID','Reviewer_First_Name', 'Reviewer_Last_Name','Reviewer_Gender','Reviewer_Age_Range','Reviewer_Occupation',  'Reviewer_City', 'Reviewer_State','Reviewer_Zipcode','Reviewer_Email','Reviewer_Phone')
 
+class DateTimeInput(forms.DateTimeInput):
+    input_type = "datetime-local"
+
+    def __init__(self, **kwargs):
+        kwargs["format"] = "%Y-%m-%dT%H:%M"
+        super().__init__(**kwargs)
+
 class Movie_RatingsForm(forms.ModelForm):
    class Meta:
        model = Movie_Ratings
        fields = ('Movie_Title', 'Reviewer_ID', 'Reviewer_Age_Range', 'Reviewer_Occupation', 'Rating','created_date','Review', )
        widgets = {
-           'created_date': DateInput(attrs={'type': 'date'}),
+           'created_date': DateTimeInput(),
        }
 
 class MovieForm(forms.ModelForm):

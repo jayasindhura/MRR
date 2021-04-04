@@ -3,6 +3,10 @@ from django.utils import timezone
 from django.contrib.auth.models import User, AbstractBaseUser, PermissionsMixin, UserManager
 from mymrr.utils import ROLES
 
+from django.db.models.signals import post_save,pre_save
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
+from django.dispatch import receiver
 
 # Create your models here.
 
@@ -111,6 +115,31 @@ class Reviewers(models.Model):
 
     def __str__(self):
         return str(self.Reviewer_ID)
+
+@receiver(pre_save, sender=Reviewers)
+def first_mail(sender, instance, **kwargs):
+    user_email = [instance.Reviewer_Email]
+    #user_email =  instance.volunteer.user.email
+    #user_email = ['jpailla@unomaha.edu','smoorthi@unomaha.edu']
+    subject, from_email, to = 'Movie Ratings & Reviews', 'mswproject.uno@gmail.com', user_email#'jpailla@unomaha.edu'
+    text_content = "Hello " + instance.Reviewer_First_Name + ","+ "\n" +\
+                   "We have succesfully added you as a Reviewer to our MRR system, you can now login and provide your Ratings & Reviews to the movies." + "\n"  + \
+                   "Below are your details that we have saved:" + "\n" + \
+                   "First Name : " + instance.Reviewer_First_Name + "\n" + \
+                   "Last Name : " + instance.Reviewer_Last_Name + "\n" + \
+                   "Phone : " + instance.Reviewer_Phone + "\n" + \
+                   "City : " + instance.Reviewer_City + "\n" + \
+                   "State : " + instance.Reviewer_State + "\n" + \
+                   "Zipcode : " + instance.Reviewer_Zipcode + "\n" + \
+                    "Please feel free to login and update your details or you can even reply to this email with your updated details." + "\n"  + \
+ \
+                   "Thanks," + "\n" + \
+                   "MRR Team"
+    # html_content = render_to_string('post/mail_post.html')
+    # create the email, and attach the HTML version as well.
+    msg = EmailMultiAlternatives(subject, text_content, from_email, to)
+    # msg.attach_alternative(html_content, "text/html")
+    msg.send()
 
 class Movie_Category(models.Model):
     Category_Name = models.CharField(max_length=100)

@@ -66,8 +66,8 @@ ROOT_URLCONF = 'MRR.urls'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'mswproject.uno@gmail.com'
-EMAIL_HOST_PASSWORD = 'ganmnxnluxlgmpoi'
+EMAIL_HOST_USER = 'msd.projectmail@gmail.com'
+EMAIL_HOST_PASSWORD = 'psyjccwhmxfupphl'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = 'Movie Ratings & Reviews System'
